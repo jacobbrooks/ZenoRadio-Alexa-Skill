@@ -27,6 +27,9 @@ Make sure your Lambda location is set to US East (N. Virginia)
 
 Read the comments in index.js to understand how the code works.
 
+Also, when adding streams, most moundpoints are served through HTTP which cannot be played by the AudioPlayer interface.
+To get around this, save the stream as an m3u file, create an s3 bucket with Amazon Web Services and upload the m3u file there. Amazon will provide you with an HTTPS link to the file which is now the stream URL. I've included a sample m3u file for you to copy into a text editor, replace the link with whatever link you have and save with the .m3u extension. 
+
 Tips: 
 
 -When uploading your zip file to your lambda function, select all the files and compress them together, don't compress the 
