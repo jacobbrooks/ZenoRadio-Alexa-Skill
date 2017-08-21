@@ -1,0 +1,41 @@
+{
+  "intents": [
+    {
+      "slots": [
+        {
+          "name": "whichCountry",
+          "type": "demonym"
+        },
+        {
+          "name": "whichGenre",
+          "type": "genre"
+        }
+      ],
+      "intent": "PlayRadioIntent"
+    },
+    {
+      "slots": [
+        {
+          "name": "whichStation",
+          "type": "station"
+        }
+      ],
+      "intent": "TuneInIntent"
+    },
+    {
+      "intent": "AMAZON.PauseIntent"
+    },
+    {
+      "intent": "AMAZON.ResumeIntent"
+    },
+    {
+      "intent": "AMAZON.HelpIntent"
+    },
+    {
+      "intent": "AMAZON.StopIntent"
+    },
+    {
+      "intent": "AMAZON.CancelIntent"
+    }
+  ]
+}

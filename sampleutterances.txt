@@ -1,0 +1,10 @@
+PlayRadioIntent play {whichCountry} radio
+PlayRadioIntent play {whichCountry} {whichGenre}
+PlayRadioIntent play {whichCountry} {whichGenre} radio
+PlayRadioIntent stream {whichCountry} radio
+PlayRadioIntent stream {whichCountry} {whichGenre}
+PlayRadioIntent stream {whichCountry} {whichGenre} radio
+PlayRadioIntent give me {whichCountry} radio
+PlayRadioIntent give me {whichCountry} {whichGenre}
+PlayRadioIntent give me {whichCountry} {whichGenre} radio
+TuneInIntent tune in to {whichStation}
