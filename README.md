@@ -33,8 +33,8 @@ Tips:
 the folder they're in. 
 
 -For some reason Alexa won't recognize certain countries so you have to pronounce them weirdly. When saying "Ghana",
-pronounce the first "a" in "Ghana" the same as you would in the word "apple" instead of like the "a" in "car". I'm trying 
-to figure out a way to fix it, but until then....
+pronounce the first "a" in "Ghana" the same as you would in the word "apple" instead of like the "a" in "car". 
+Also it completely doesn't understand when I say "Mali" or "Malian", and there's no way to pronounce it to make it understand. I'm trying to figure out a way to fix it, but until then....
 
 To actually use the skill say "Alexa, tell zeno to..." followed by the command you want it to do.
 
