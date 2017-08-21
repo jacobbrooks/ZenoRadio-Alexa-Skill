@@ -263,6 +263,7 @@ var defaultGenre = function(countryName){
    }else if(mapSlotToKey(countryName) == "mli"){
         return "general";
    }
+   return "error";
 };
 
 
