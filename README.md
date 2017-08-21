@@ -12,7 +12,7 @@ In the "skill information" tab:
 -Select "English (U.S.)" for language
 -Name the skill "ZenoRadio" 
 -Make the invocation name "xeno". Then you can pronounce it like "Zeeno". If you made the invocation "Zeno", you would have to 
-pronounce it "Zeyno" which playing with it on the echo. 
+pronounce it "Zeyno" when playing with it on the echo. 
 -Select "Yes" for "Audio Player" in the global fields. 
 
 In the "interation model" tab:
