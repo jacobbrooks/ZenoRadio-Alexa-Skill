@@ -45,6 +45,4 @@ Example commands:
 "Alexa, tell zeno to give me Guatemalan music"
 "Alexa, tell zeno to tune in to Shalom Haiti"
 
-
-
-
+To whoever ends up continuing this: email me if you have questions - jbrooks2@oswego.edu
