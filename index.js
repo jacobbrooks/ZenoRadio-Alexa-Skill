@@ -3,7 +3,7 @@
     An intent is a programmable action that Alexa can perform, such as 'Play Radio'. This Skill has 2 custom intents, 
     'PlayRadioIntent' and 'TuneInIntent'. The 'PlayRadioIntent' is invoked when you want alexa to play a given genre
     of radio from a given country. The 'PlayRadioIntent' is invoked with the words 'play', 'stream', or 'give me', so for
-    example one would say "Alexa, ask Zeno to play Haiti Pop Radio" or "Alexa, tell Zeno to stream Ghanian Christian Radio"
+    example one would say "Alexa, ask Zeno to play Haiti Pop Radio" or "Alexa, tell Zeno to stream Ghanaian Christian Radio"
 
     The 'TuneInIntent' is invoked when you want to listen to a specific radio station. The only invocation phrase 
     for this intent is 'tune in to' so for example, one would say, "Alexa, ask Zeno to tune in to Shalom Haiti"
