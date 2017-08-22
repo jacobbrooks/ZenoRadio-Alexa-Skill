@@ -38,12 +38,12 @@
     -and the third letter is the last letter in the countries name. 
 
     For example the return value for mapSlotToKey("haiti") or mapSlotToKey("haitian") will be "hti". Now, dictDirectory["hti"] = haitiDict.
-    The variable dictForCountry is a reference to the current dictionary that is being accessed to play a stream, and has a new value assigned to it
-    everytime the 'PlayRadioIntent' is invoked. So if one were listening to Hatian radio: dictForCountry == dictDirectory["hti"] == haitiDict.  
-    Now since dictForCountry == haitiDict, the variable 'genreName' can be used as the key to index into haitiDict. 
-    So for example,  dictForCountry["pop"] == "stream URL for hatian pop music".
+    The variable dictPointer is a reference to the current dictionary that is being accessed to play a stream, and has a new value assigned to it
+    everytime the 'PlayRadioIntent' is invoked. So if one were listening to Hatian radio: dictPointer == dictDirectory["hti"] == haitiDict.  
+    Now since dictPointer == haitiDict, the variable 'genreName' can be used as the key to index into haitiDict. 
+    So for example,  dictPointer["pop"] == "stream URL for hatian pop music".
 
-    dictForCountry[genreName] can now be passed to the PlayRadio function which returns a JSON response object. The response object uses the stream URL that was 
+    dictPointer[genreName] can now be passed to the PlayRadio function which returns a JSON response object. The response object uses the stream URL that was 
     passed into it to send a play directive: "AudioPlayer.Play" to Alexa's AudioPlayer interface. This causes the Alexa's built in AudioPlayer to begin playing
     the stream. None of this is executed until the response object is passed into the 'succeed' function from the 'PlayRadioIntent'...where it says
     'this.context.succeed(response)'
@@ -51,7 +51,7 @@
     Before the response can be invoked we need to check if the genreSlot was an empty slot because the user doesn't have to provide a genre.
     One can just say "Alexa, tell Zeno to play Hatian Radio". In this case the genreName == "nullslot". When this happens we pass 'countryName' to the function 
     defaultGenre(countryName) which returns a default genre to be used as a key into the current country's designated dictionary. This can be seen in the line
-    of code that says: var response = playRadio(dictForCountry[defaultGenre(countryName)]);
+    of code that says: var response = playRadio(dictPointer[defaultGenre(countryName)]);
 
     The mechanics of the 'TuneInIntent' are almost identical to that of the 'PlayRadioIntent' accept it uses a different dictionary, stationDict[], which just contains
     randomly chosen specific stations. 
@@ -82,7 +82,7 @@ var APP_ID = "";
 var countryName = ""; //The name/demonym of a country such as "haiti" / "haitian"
 var stationName = ""; //The name of a station such as "shalom haiti"
 var genreName = ""; //The name of a genre such as "news"
-var dictForCountry = {}; //Reference to the current dictionary being accessed. 
+var dictPointer = {}; //Reference to the current dictionary being accessed. 
 
 
 /*
@@ -114,13 +114,13 @@ var handlers = {
         var genreSlot = this.event.request.intent.slots.whichGenre;//Represents the slot that contains the string with the genre name
         genreName = determineSlotValue(genreSlot); //The actual String which is the genre name that was extracted from genreSlot using the determineSlotValue() function
 
-        dictForCountry = dictDirectory[mapSlotToKey(countryName)];// This line assigns the current country dictionary to the dicForCountry reference which is visible to all functions and intents within this file.
+        dictPointer = dictDirectory[mapSlotToKey(countryName)];// This line assigns the current country dictionary to the dicForCountry reference which is visible to all functions and intents within this file.
     
         if(genreName != "nullslot"){ //checks to see if a genre was even provided?
-            var response = playRadio(dictForCountry[genreName]); //response object that makes alexa play radio, playRadio function needs a String "stream URL" to be passed to it. 
+            var response = playRadio(dictPointer[genreName]); //response object that makes alexa play radio, playRadio function needs a String "stream URL" to be passed to it. 
             this.context.succeed(response);
         }else{
-            var response = playRadio(dictForCountry[defaultGenre(countryName)]);//When no genre is provided, the program chooses a default genre to be played. 
+            var response = playRadio(dictPointer[defaultGenre(countryName)]);//When no genre is provided, the program chooses a default genre to be played. 
             this.context.succeed(response);
         }
     },
@@ -130,7 +130,13 @@ var handlers = {
     'TuneInIntent': function() {
         var stationSlot = this.event.request.intent.slots.whichStation;
         stationName = determineSlotValue(stationSlot);
-        var response = playRadio(stationDict[stationName]);
+        dictPointer = stationDict;
+        genreName = stationName; /*When AMAZON.ResumeIntent is invoked it uses the variable 'genreName' to index back into the current stream.
+                                So if the stream is paused after a TuneInIntent, the variable genreName will now == stationName, and can be used
+                                to index back into stationDict (meaning into dictPointer which will be referencing stationDict) when the user resumes play.
+                                'genreName' will never == "nullslot" right after the TuneInIntent, so in this 
+                                context don't worry about the else{} statement in the AMAZON.ResumeIntent*/
+        var response = playRadio(dictPointer[genreName]);
         this.context.succeed(response);
     },
     /*
@@ -145,10 +151,10 @@ var handlers = {
     */
     'AMAZON.ResumeIntent': function () {
         if(genreName != "nullSlot"){
-            var response = playRadio(dictForCountry[genreName]);
+            var response = playRadio(dictPointer[genreName]);
             this.context.succeed(response);
         }else{
-            var response = playRadio(dictForCountry[defaultGenre(countryName)]);
+            var response = playRadio(dictPointer[defaultGenre(countryName)]);
             this.context.succeed(response);
         }
     },
