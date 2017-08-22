@@ -42,6 +42,8 @@ countryslotvalues.txt is "Male"; It's the value representing Mali. It's a hacky 
 
 To actually use the skill say "Alexa, tell zeno to..." or "Alexa, ask zeno to..." followed by the command you want it to do.
 
+To see all the country/genre combinations and radio stations you can tell alexa to play, see the text file all_countries_and_genres.txt
+
 Example commands:
 
 "Alexa, tell zeno to play haitian radio"
