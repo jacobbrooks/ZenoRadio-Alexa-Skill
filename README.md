@@ -6,6 +6,7 @@ an alexa skill. This will help you learn how to setup a skill in the Amazon Deve
 make an AWS Lambda Function for it. Once you set up the generic outline of a skill you need to change some things around
 to get the ZenoRadio skill working. Some of the following might already be implemented / selected in your skill.
 
+In the Amazon Developer Console on your Alexa Skill's page. 
 
 In the "skill information" tab: 
 -Select "custom" for skill type
@@ -23,12 +24,16 @@ the same for the other custom slots with their respective txt files. You can tel
 by the file names. 
 -Copy the contents of sampleuterances.txt into the sample utterance field
 
+Once you've created the lambda function, and tested make sure under the Privacy & Compliance tab, you check "Yes" to the question "Does this skill contain advertising?", Some streams have advertisements that ZenoRadio gets paid for. 
+
 Make sure your Lambda location is set to US East (N. Virginia)
 
 Read the comments in index.js to understand how the code works.
 
 Also, when adding streams, most moundpoints are served through HTTP which cannot be played by the AudioPlayer interface.
-To get around this, save the stream as an m3u file, create an s3 bucket with Amazon Web Services and upload the m3u file there. Amazon will provide you with an HTTPS link to the file which is now the stream URL. I've included a sample m3u file for you to download, open up in a text editor, then replace the link with whatever link you have. Save the file with the .m3u extension. 
+To get around this, save the stream as an m3u file, create an s3 bucket with Amazon Web Services and upload the m3u file there. Make sure to give the files public read access. Amazon will provide you with an HTTPS link to the file which is now the stream URL. I've included a sample m3u file for you to download, open up in a text editor, then replace the link with whatever link you have. Save the file with the .m3u extension. 
+
+
 
 Tips: 
 
