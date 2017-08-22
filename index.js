@@ -252,6 +252,10 @@ var mapSlotToKey = function(countryName){
         return "gta";
     }else if(countryName == "male" || countryName == "malian"){ //Alexa doesn't recognize the word "Mali", when one says "Mali", Alexa hears it as "Male", so this accounts for that problem. "Malian" doesn't work at all.
         return "mli";
+    }else if(countryName == "senegal" || countryName == "senegalese"){
+        return "snl";
+    }else if(countryName == "mexico" || countryName == "mexican"){
+        return "mxo";
     }
     return "error";
 };
@@ -267,6 +271,10 @@ var defaultGenre = function(countryName){
    }else if(mapSlotToKey(countryName) == "gta"){
         return "general";
    }else if(mapSlotToKey(countryName) == "mli"){
+        return "general";
+   }else if(mapSlotToKey(countryName) == "snl"){
+        return "general";
+   }else if(mapSlotToKey(countryName) == "mxo"){
         return "general";
    }
    return "error";

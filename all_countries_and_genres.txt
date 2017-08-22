@@ -1,0 +1,23 @@
+ZenoRadio Alexa Skill Countries/Genres/Stations -
+
+
+Countries/Genres:
+
+-Haiti: music, pop, christian, news, international, gospel, creole, talk
+
+-Ghana: music, pop, christian, news, international, gospel, talk
+
+-Guatemala: music, christian, news, sports, talk, comedy
+
+-Mali: music, religion, french, sports
+
+-Senegal: music, religion, sports, talk, fulani, french, wolof
+
+-Mexico: music, religion, sports, talk, news
+
+
+
+
+Stations:
+
+-Shalom Haiti

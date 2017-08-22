@@ -10,3 +10,5 @@ comedy
 talk
 religion
 french
+wolof
+fulani
