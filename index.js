@@ -34,11 +34,11 @@
     representing the country. This key can now be used to index into the dictDirectory[] dictionary to access the proper given country's designated dictionary.
     The three letters of the key follows a specific pattern:
     -The first letter is the first letter of the country name, 
-    -the middle letter is the first consonant after the first letter in the country's name, 
+    -The middle letter is the first consonant after the first letter in the country's name, 
     -and the third letter is the last letter in the countries name. 
 
     For example the return value for mapSlotToKey("haiti") or mapSlotToKey("haitian") will be "hti". Now, dictDirectory["hti"] = haitiDict.
-    the variable dictForCountry is a reference to the current dictionary that is being accessed to play a stream, and has a new value assigned to it
+    The variable dictForCountry is a reference to the current dictionary that is being accessed to play a stream, and has a new value assigned to it
     everytime the 'PlayRadioIntent' is invoked. So if one were listening to Hatian radio: dictForCountry == dictDirectory["hti"] == haitiDict.  
     Now since dictForCountry == haitiDict, the variable 'genreName' can be used as the key to index into haitiDict. 
     So for example,  dictForCountry["pop"] == "stream URL for hatian pop music".
@@ -63,7 +63,7 @@
 
     The intents "AMAZON.PauseIntent", "AMAZON.StopIntent", and "AMAZON.CancelIntent" all have the same inner functionality, where the stopRadio() function is called.
     stopRadio() returns a JSON Response object just like the playRadio() function. Then it is executed the same way with the line: this.context.succeed(response). The response 
-    object that is returned sends Alexa's AudioPlayer a "AudioPlayer.Stop" directive to get Alexa to stop playing what ever stream is currently playing. 
+    object that is returned sends Alexa's AudioPlayer an "AudioPlayer.Stop" directive to get Alexa to stop playing what ever stream is currently playing. 
 
     The "AMAZON.ResumeIntent" just invokes the PlayRadio(streamURL) function. Since this skill plays live streams, play will not resume from the time the user paused,
     but will instead just return to the stream's current time. 
