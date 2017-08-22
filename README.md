@@ -37,9 +37,10 @@ the folder they're in.
 
 -For some reason Alexa won't recognize certain countries so you have to pronounce them weirdly. When saying "Ghana",
 pronounce the first "a" in "Ghana" the same as you would in the word "apple" instead of like the "a" in "car". 
-Also it completely doesn't understand when I say "Mali" or "Malian", and there's no way to pronounce it to make it understand. I'm trying to figure out a way to fix it, but until then....
+Also when one says the country name "Mali" Alexa hears it as "Male", which is why one of the country slot values in
+countryslotvalues.txt is "Male"; It's the value representing Mali. It's a hacky fix, but it was the only way I was able to get it to work. Saying the demonym "Malian" unfortunately doesn't work at all, and it doesn't seem like I can hack my way through that. 
 
-To actually use the skill say "Alexa, tell zeno to..." followed by the command you want it to do.
+To actually use the skill say "Alexa, tell zeno to..." or "Alexa, ask zeno to..." followed by the command you want it to do.
 
 Example commands:
 
