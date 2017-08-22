@@ -122,7 +122,7 @@ var handlers = {
         }else{
             var response = playRadio(dictPointer[defaultGenre(countryName)]);//When no genre is provided, the program chooses a default genre to be played. 
             this.context.succeed(response);
-        }
+        } 
     },
     /*
         Less 'meaty' than 'PlayRadioIntent' but is invoked when the user wants to tune in to a specific station.
@@ -193,7 +193,7 @@ var playRadio = function(streamURL){
             directives: [
                 {
                     type: "AudioPlayer.Play", //This directive is sent to the Alexa AudioPlayer when the response is invoked. 
-                    playBehavior: "REPLACE_ALL",
+                    playBehavior: "REPLACE_ALL", //This means that AudioPlayer will replace whatever is currently playing with the new stream. 
                     audioItem: {
                         stream: {
                             url: streamURL,
@@ -250,7 +250,7 @@ var mapSlotToKey = function(countryName){
         return "gna";
     }else if(countryName == "guatemala" || countryName == "guatemalan"){
         return "gta";
-    }else if(countryName == "mali" || countryName == "malian"){
+    }else if(countryName == "male" || countryName == "malian"){ //Alexa doesn't recognize the word "Mali", when one says "Mali", Alexa hears it as "Male", so this accounts for that problem. "Malian" doesn't work at all.
         return "mli";
     }
     return "error";
